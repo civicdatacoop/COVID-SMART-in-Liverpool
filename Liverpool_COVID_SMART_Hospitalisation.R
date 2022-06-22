@@ -495,8 +495,6 @@ test[tier3==1  & is.na(inc_2)==F, admi2_cnt_adj2_ucl:=admi2_cnt_adj2_ucl/inc_ucl
 table(test$tier2,test$tier2 )
 min(test[tier2==1 & after_tier2==T]$date)
 max(test[tier2==1 & after_tier2==T]$date)
-cov.var <- c("total_pop", "prop_70plus", "prop_7_11", "prop_bame", "pop_dens", 
-             "prop_students", "ch_prop", "imd_score","av_test")
 
 end.post=max(test$time)
 
@@ -618,7 +616,7 @@ sea1_long <- microsynth(as.data.frame(test),
                         test="twosided",
                         check.feas=TRUE,
                         confidence=0.95,
-                        perm=400,
+                        perm=250,
                         jack=F,
                         # result="smart1",
                         n.cores = 1)
@@ -1108,10 +1106,6 @@ ggsave(normalizePath(file.path(b,"papers/SMART_hospitalisation/BMJ_submission/fi
 
 
 ########################## Summary statistics table ############################
-#cov.var <- c("total_pop", "prop_bame", "pop_dens","imd_score", "prop_70plus","as_prop_vulner")
-# cov.var2 <- c("total_pop", "prop_70plus", "prop_7_11", "prop_bame", "pop_dens", 
-#               "prop_students", "ch_prop", "imd_score", "prop_sgtf","av_test")
-
 table(test$st_week)
 test$case
 test[, case_rate:=cases_imp1*100000/total_pop]
@@ -1573,7 +1567,7 @@ sea1_sex_long <- microsynth(as.data.frame(test),
                             test="twosided",
                             check.feas=TRUE,
                             confidence=0.95,
-                            perm=400,
+                            perm=250,
                             jack=F,
                             # result="smart1",
                             n.cores = 1)
@@ -1636,7 +1630,7 @@ sea1_edu_long <- microsynth(as.data.frame(test),
                             test="twosided",
                             check.feas=TRUE,
                             confidence=0.95,
-                            perm=400,
+                            perm=250,
                             jack=F,
                             # result="smart1",
                             n.cores = 1)
@@ -1695,7 +1689,7 @@ sea1_kid_long <- microsynth(as.data.frame(test),
                             test="twosided",
                             check.feas=TRUE,
                             confidence=0.95,
-                            perm=400,
+                            perm=250,
                             jack=F,
                             # result="smart1",
                             n.cores = 1)
@@ -2121,7 +2115,7 @@ sea01_long <- microsynth(as.data.frame(test01),
                          test="twosided",
                          check.feas=TRUE,
                          confidence=0.95,
-                         perm=400,
+                         perm=250,
                          jack=F,
                          # result="smart1",
                          n.cores = 1)
